@@ -1,0 +1,307 @@
+
+<div class="container mt-3 image" *ngIf="!j">
+  <div class="card-header text-center text-light display-6">RESUME-BUILDER</div>
+  <div class="alert alert-warning" role="alert" style="width: 19rem;">
+    <mat-icon style="font-size: 1.5rem;">warning</mat-icon> &nbsp; Enter all the fields!!
+  </div>
+  
+ <b>Upload your photo here (JPEG file/png file)</b> 
+  <img [src]="url" class="avatar">
+<br>
+  <input type='file' (change)="readUrl($event)"accept="image/png, image/jpeg">
+  
+  
+<div class="row mt-4">       
+    <div class="col-lg-4">       
+      
+      <!--contact-->
+      <input [(ngModel)]="name" type="text" value="" class="form-control mt-2" placeholder="enter your name" required>
+      <input [(ngModel)]="email" type="text" value="" class="form-control mt-2" placeholder="enter your email" required>
+      <input [(ngModel)]="address" type="text" value="" class="form-control mt-2" placeholder="enter your location" required>
+      <input [(ngModel)]="mobile" type="text" value="" class="form-control mt-2" placeholder="enter your mobile" required>
+
+      <!--personal-->
+      
+      <input [(ngModel)]="gender" type="text" value="" class="form-control mt-2" placeholder="gender" required >
+
+
+     
+      <input [(ngModel)]="dob" type="text" value="" class="form-control mt-2"required placeholder="dd-mm-yyyy">
+      <input [(ngModel)]="nationality" type="text" value="" class="form-control mt-2" placeholder="enter your nationality" required>
+<hr>
+      <!--skills-->
+      
+      
+     
+      <button mat-raised-button color="primary" (click)="addSkill()">ADD SKILL</button>
+      <input [(ngModel)]="skillItem" type="text" value="" class="form-control mt-2" required placeholder="skill">
+     
+      
+      <input [(ngModel)]="level" type="text" value="" class="form-control mt-2" placeholder="beginner/intermediate/expert" required>
+
+        <div *ngFor="let i of skillList;let index=index;"class="row">
+            <div class="col-8 mt-2"><mat-card>{{i}}</mat-card></div>
+            <div class="col-4 mt-2" *ngIf="index%2==0">
+                <button mat-fab color="warn" matTooltip="Delete" (click)="deleteSkill(index)">
+              <mat-icon>delete</mat-icon>
+            </button>   
+          </div>   
+        </div> 
+<hr>
+        <!---interest-->
+        <button mat-raised-button color="primary" (click)="addInterest()">ADD INTEREST</button>
+        <input [(ngModel)]="interest" type="text" value="" class="form-control mt-2" placeholder="add your interest" required>
+       
+     
+        <div *ngFor="let i of interestList;let index=index" class="row">
+          <div class="col-8 mt-2"><mat-card>{{i}}</mat-card>
+          </div>
+          <div class="col-4 mt-2"><button mat-fab color="warn" matTooltip="Delete" (click)="deleteInterest(index)">
+            <mat-icon>delete</mat-icon></button>
+          </div>
+        </div>
+      
+    </div>
+    
+      <div class="col-lg-8">
+      <!--objective-->
+        <input [(ngModel)]="objective" type="text" value="" class="form-control mt-2" placeholder="objective" required>
+<hr>
+        <!--education-->
+        <button mat-raised-button color="primary" (click)="addEducation()">ADD EDUCATION</button>
+        <input [(ngModel)]="institution" type="text" value="" class="form-control mt-2" placeholder="institution" required>
+        <input [(ngModel)]="course" type="text" value="" class="form-control mt-2" placeholder="course" required>
+        <input [(ngModel)]="grade" type="text" value="" class="form-control mt-2" placeholder="grade" required>
+       &nbsp;
+        <input [(ngModel)]="year" placeholder="batch" type="text" value="" class="form-control mt-2"  required>  
+   
+
+        <div *ngFor="let i of educationList;let index=index;"class="row">
+            <div class="col-8 mt-2"><mat-card>{{i}}</mat-card></div>
+            <div class="col-4 mt-2" *ngIf="index%4==0">
+                <button mat-fab color="warn" matTooltip="Delete" (click)="deleteEducation(index)">
+              <mat-icon>delete</mat-icon>
+            </button>   
+          </div>   
+        </div> 
+        <!--projects-->
+<hr>
+<button mat-raised-button color="primary" (click)="addProject()">ADD PROJECT</button>
+        <input [(ngModel)]="projectTitle" type="text" value="" class="form-control mt-2" placeholder="project title" required>
+        <input [(ngModel)]="duration" type="text" value="" class="form-control mt-2" placeholder="duration" required>
+        <input [(ngModel)]="desc" type="text" value="" class="form-control mt-2" placeholder="description" required>
+      
+    
+
+        <div *ngFor="let i of projectList;let index=index;"class="row">
+            <div class="col-8 mt-2"><mat-card>{{i}}</mat-card></div>
+            <div class="col-4 mt-2" *ngIf="index%3==0">
+                <button mat-fab color="warn" matTooltip="Delete" (click)="deleteProject(index)">
+              <mat-icon>delete</mat-icon>
+            </button>   
+          </div>   
+        </div>   
+        <!--certification-->
+<hr>
+<button mat-raised-button color="primary" (click)="addCertificate()">ADD CERTIFICATE</button>
+        <input [(ngModel)]="certName" type="text" value="" class="form-control mt-2" placeholder="certificate" required>
+      
+     
+        <div *ngFor="let i of certificationList;let index=index" class="row">
+          <div class="col-8 mt-2"><mat-card>{{i}}</mat-card>
+          </div>
+          <div class="col-4 mt-2"><button mat-fab color="warn" matTooltip="Delete" (click)="deleteCertificate(index)">
+            <mat-icon>delete</mat-icon></button>
+          </div>
+        </div>
+<hr>
+        <!--extra-->
+        <button mat-raised-button color="primary" (click)="addExtra()">ADD EXTRA CURRICULAR ACTIVITIES</button>
+        <input [(ngModel)]="extra" type="text" value="" class="form-control mt-2" placeholder="Extra Curricular Activities" required>
+        
+     
+        <div *ngFor="let i of extraList;let index=index" class="row">
+          <div class="col-8 mt-2"><mat-card>{{i}}</mat-card>
+          </div>
+          <div class="col-4 mt-2"><button mat-fab color="warn" matTooltip="Delete" (click)="deleteExtra(index)">
+            <mat-icon>delete</mat-icon></button>
+          </div>
+        </div>
+
+
+        <br>
+        <button mat-raised-button color="warn" (click)="Add2()">ADD NEW SECTION</button>
+        <div *ngIf="visible2">
+        <input [(ngModel)]="secName2" type="text" value="" class="form-control mt-1" placeholder="section name" required>
+        <input [(ngModel)]="secDes2" type="text" value="" class="form-control mt-1" placeholder="description" required>
+        <button mat-raised-button color="primary" (click)="addSec2()" class="mt-1">ADD {{secName2}}</button>
+       
+     
+        <div *ngFor="let i of secList2;let index=index" class="row">
+          <div class="col-8 mt-2"><mat-card>{{i}}</mat-card>
+          </div>
+          <div class="col-4 mt-2" *ngIf="index%2==0"><button mat-fab color="warn" matTooltip="Delete" (click)="deleteSec2(index)">
+            <mat-icon>delete</mat-icon></button>
+          </div>
+        </div>
+      </div> 
+      </div>
+      <div class="text-center" style="margin-top: 12rem; margin-bottom: 4rem;">
+      <button mat-raised-button color="warn"(click)="onsubmit()" class="form-control" style="width: 15rem;
+      "><mat-icon>remove_red_eye</mat-icon>&nbsp; PREVIEW</button>
+      </div>
+</div>
+</div> 
+ <!---display resume-->
+ 
+
+ <div *ngIf="j&&!isfinal" class="container mt-4">
+  <button mat-raised-button (click)="edit()" class="mt-4 bg-info" style="margin-right: 3rem;">edit <mat-icon>edit</mat-icon></button>
+  <button mat-raised-button (click)="makepdf()" class="mt-4" style="background-color: yellowgreen;">download <mat-icon>arrow_downward</mat-icon></button>
+
+ <br><br>
+  <b style="font-size:x-large;">Choose color &nbsp; <mat-icon style="margin-top: 2rem;">format_color_fill</mat-icon></b>
+  <select class="form-select mt-3" [(ngModel)]="color" (ngModelChange)="getcolor()" style="width: 12rem;" >
+    <option *ngFor="let c of colorList" [ngValue]="c"> {{c}} </option>
+  </select>
+  
+
+ <div class="container mt-4" id="content" #content>
+  <mat-card>
+  <div class="row">
+    <i class="bi bi-envelope"></i>
+    <div class="col-5" [ngStyle]="{'background-color':getcolor()}" style="color: floralwhite;">
+  
+          <div class="row display-6 mt-2"style="word-wrap: break-word;">
+            <b>{{name}}</b>
+            <img [src]="url" class="avatar mt-4">
+          </div><br>
+     
+        <div class="row">
+          <span class="alert alert-primary title">Contact</span>
+          <div class="row des">
+              <div class="col-1">MAIL</div>
+            
+              <div class="col-11" style="word-wrap: break-word;">{{email}}</div>
+          </div>
+          <div class="row des">
+            <div class="col-1">MOBILE</div>
+          
+            <div class="col-11"style="word-wrap: break-word;">{{mobile}}</div>
+          </div>
+          <div class="row des">
+          <div class="col-1">LOCATION</div>
+        
+          <div class="col-11"style="word-wrap: break-word;">{{address}}</div>
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="alert alert-primary title">Personal Details</div>
+         
+          <div class="row des">
+            <div class="col-6" >DOB</div>
+            <div class="col-6">{{dob}}</div>
+          </div>
+          <div class="row des">
+            <div class="col-6">GENDER</div>
+            <div class="col-6">{{gender}}</div>
+          </div>
+          <div class="row des">
+            <div class="col-6" style="word-wrap: break-word;">NATIONALITY</div>
+            <div class="col-6" style="word-wrap: break-word;">{{nationality}}</div>
+          </div>
+
+        </div>
+        <div class="row">
+         <span class="alert alert-primary title">Skills</span>
+         <div *ngFor="let i of skillList; let index=index;" class="row">
+           <div class="col-4" *ngIf="index%2==0">{{i}}</div>
+           <div class="col-8" *ngIf="index%2!=0">
+            
+              <div *ngIf="i[0]=='e'|| i[0]=='E' || i=='beginner'"><mat-progress-bar mode="determinate" value="90"></mat-progress-bar>
+                </div>
+              <div *ngIf="i[0]=='i'||i[0]=='I' || i=='intermediate'"><mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
+                </div>
+              <div *ngIf="i[0]=='b'|| i[0]=='B' || i=='beginner'"><mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                </div>
+   
+           </div>
+          </div>
+
+        </div> 
+        <div class="row">
+          <span class="alert alert-primary title">Interest</span>
+          <div *ngFor="let i of interestList; let index=index;" class="row des">
+            &nbsp; &nbsp; {{i}}
+          </div>
+        </div>
+       
+        
+     </div>
+    <div class="col-7">
+      <div class="row">
+        <div class="title">Objective</div>
+        <div class="des"style="word-wrap: break-word;">{{objective}}</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="title">Education</div>
+        <div class="des">
+          <div *ngFor="let i of educationList;let index=index;">
+           
+            <div *ngIf="index%4==0" style="word-wrap: break-word;"><b>{{i}}</b></div>
+            <div *ngIf="(index-1)%4==0" style="word-wrap: break-word;">{{i}}</div>
+            <div *ngIf="(index-2)%4==0" style="word-wrap: break-word;">{{i}}</div>
+           <div *ngIf="(index-3)%4==0" style="word-wrap: break-word;">{{i}}</div>
+            
+          </div>
+        </div>
+      </div> 
+      <hr>
+      <div class="row">
+        <div class="title">Project</div>
+        <div class="des">
+          <div *ngFor="let i of projectList;let index=index;">
+            <div *ngIf="index%3==0" style="word-wrap:break-word;"><b>{{(index/3)+1}}){{i}}</b></div>
+            <div *ngIf="(index-1)%3==0" style="word-wrap:break-word;"> duration:{{i}}</div>
+            <div *ngIf="(index-2)%3==0" style="word-wrap:break-word;">Description: {{i}}</div>
+          </div>
+        </div>
+      </div> 
+      <hr>
+      <div class="row">
+        <div class="title">Certifications</div>
+        <div class="des">
+          <div *ngFor="let i of certificationList;let index=index;" style="word-wrap:break-word;">
+           <b>{{index+1}})</b>{{i}}
+          </div>
+        </div>
+       
+      </div>
+      <hr>
+      <div class="row">
+        <div class="title">Extra Curricular Activities</div>
+        <div class="des">
+          <div *ngFor="let i of extraList;let index=index;"style="word-wrap: break-word;">
+            <b>{{index+1}})</b>{{i}}
+            </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div *ngFor="let i of secList2;let index=index;">       
+          <div *ngIf="index%2==0" class="title" style="word-wrap: break-word;">{{i}}</div>
+          <div *ngIf="index%2!=0" class="des"  style="word-wrap: break-word;">{{i}} <hr></div> 
+       </div>  
+      </div>
+
+    </div>
+  </div>
+  
+</mat-card>      
+  
+</div>
+
+</div>
+

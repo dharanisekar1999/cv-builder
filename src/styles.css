@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+html, body { height: 100%;
+    
+    }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.title
+{
+    font-size:x-small;
+    font-weight: 900;
+    margin-top: 0.2rem;
+}
+.des
+{
+    font-size: x-small;
+    font-weight: 500;
+    margin-top: 0.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.row,.col
+{
+    margin-top: 0.1rem;
+    margin-left: 0.1rem;
+   
+}
+#content
+{
+    width: 600px;
+    height: 842px;
+}
+.alert {
+    margin-left: 1rem;
+    width: 10rem;
+  }
+  .form-control{
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      margin-right: 2rem;
+      background-color: transparent;
+      font-weight: 900;
+  }
+  .image
+  {
+      border-radius: 4rem;
+      background-color:peachpuff;
+      /* background-image: url('https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-green-round-geometric-wallpaper-print-ad-image_160587.jpg'); */
+      background-repeat: no-repeat;
+      background-size: cover;
+      
+  }
+  .card-header
+  {
+      border-radius: 4rem;
+      background-color: rosybrown;
+      margin-bottom: 4rem;
+  }
+  .alert-warning
+  {
+      font-weight: 700;
+      font-size: x-large;
+  }
+  .alert-primary
+  {
+      margin-top: 1rem;
+    
+  }
+  .avatar
+  {
+    vertical-align: middle;
+    width:6.5rem;
+    height:6.5rem;
+    margin-left: 3rem;
+    /* border-radius: %; */
+  }
+  
+  .mat-progress-bar-fill::after {
+    background-color:royalblue !important;
+}
